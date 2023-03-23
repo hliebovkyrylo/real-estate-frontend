@@ -1,0 +1,48 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1650px;
+}
+
+.root {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    background-color: black;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 49px;
+}
+
+.nav__link:hover {
+    color: #1DAEFF;
+}
+
+.nav__link:last-child {
+    background-color: #1DAEFF;
+    padding: 11px 24px;
+    border-radius: 10px;
+}
+
+.nav__link:last-child:hover {
+    background-color: #1a8aca;
+    color: #fff;
+}
