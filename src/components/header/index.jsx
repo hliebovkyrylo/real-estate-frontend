@@ -30,7 +30,7 @@ export const Header = () => {
                                 <a className={styles.nav__link} href="/">Home</a>
                                 <a className={styles.nav__link} href="/">About Us</a>
                                 <a className={styles.nav__link} href="/">Other Projects</a>
-                                <a className={styles.nav__link} href="/users/me">Sign in</a>
+                                <a className={styles.nav__link} href="/auth/login">Sign in</a>
                             </div>
                         )}
                     </div>
