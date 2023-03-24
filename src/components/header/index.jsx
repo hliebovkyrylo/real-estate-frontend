@@ -2,7 +2,7 @@ import React from "react";
 
 import logo from "../../assets/images/logo/bi_house-door.png";
 
-import styles from "./header.module.css";
+import styles from "./header.module.scss";
 
 export const Header = () => {
     const isAuth = false;
