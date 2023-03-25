@@ -1,7 +1,9 @@
 import React from "react";
 
 import styles from "./home.module.scss";
-import { Project } from "../../components/projects";
+import { Project, Contact } from "../../components";
+
+import load_more from "../../assets/images/button/load_more.png";
 
 export const Home = () => {
     return (
@@ -14,18 +16,25 @@ export const Home = () => {
                 </div>
             </div>
 
-            <div className={styles.projects}>
+            <section>
                 <div className={styles.container}>
-                    <div className={styles.projects__inner}>
-                        {[...Array(6)].map(() => (
-                            <Project
-                                poster="https://images.pexels.com/photos/10007306/pexels-photo-10007306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                price="200.000"
-                            />
-                        ))}
+                    <div className={styles.projects}>
+                        <div className={styles.projects__inner}>
+                            {[...Array(6)].map(() => (
+                                <Project
+                                    poster="https://images.pexels.com/photos/10007306/pexels-photo-10007306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                    price="200.000"
+                                />
+                            ))}
+                        </div>
+                        <button className={styles.button}>
+                            <img className={styles.button_img} src={load_more} alt="" />
+                        </button>
                     </div>
                 </div>
-            </div>
+            </section>
+            <Contact></Contact>
+            
         </body>
     )
 };

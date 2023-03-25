@@ -21,7 +21,7 @@ export const Project = ({
                             <div className={styles.price}>{price}$</div>
                         )}
 
-                        <button className={styles.button}>View Details</button>
+                        <a className={styles.button} href="/projects/:id">View Details</a>
                     </div>
                 </div>
             </div>
