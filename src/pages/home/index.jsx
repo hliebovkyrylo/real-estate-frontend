@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./home.module.scss";
-import { Project, Contact } from "../../components";
+import { Project, Contact, Footer } from "../../components";
 
 import load_more from "../../assets/images/button/load_more.png";
 
@@ -33,8 +33,8 @@ export const Home = () => {
                     </div>
                 </div>
             </section>
-            <Contact></Contact>
-            
+            <Contact />
+            <Footer />
         </body>
     )
 };

@@ -1,0 +1,23 @@
+@import '../../pages/home/home.module.scss';
+
+.text {
+    font-size: 16px;
+    width: 313px;
+    margin-top: 18px;
+    opacity: .6;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    margin-bottom: 55px;
+}
+
+.footer__title {
+    font-size: 24px;
+}
+
+.footer__links {
+    margin-top: 18px;
+}
