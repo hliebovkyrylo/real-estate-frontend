@@ -1,0 +1,22 @@
+.root {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.avatar {
+    width: 107px;
+    height: 107px;
+    border-radius: 50%;
+}
+
+.userInfo {
+    display: flex;
+    justify-content: center;
+}
+
+.surname,
+.name {
+    color: #fff;
+    font-size: 20px;
+    margin-left: 10px;
+}
