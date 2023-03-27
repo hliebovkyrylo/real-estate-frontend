@@ -1,0 +1,43 @@
+@import '../../pages/home/home.module.scss';
+
+.img__bg {
+    width: 860px;
+    height: 477px;
+    border-radius: 10px;
+}
+
+.items {
+    display: flex;
+    justify-content: space-between;
+    width: 860px;
+    color: #fff;
+    margin: 46px 0;
+}
+
+.item {
+    border: 1px solid #535353;
+    padding: 19px 25px;
+    font-size: 17px;
+    border-right: none;
+    &:first-child {
+        border-radius: 10px 0 0 10px;
+    }
+    &:last-child {
+        border-right: 1px solid #535353;
+        border-radius: 0 10px 10px 0;
+    }
+}
+
+.title3 {
+    color: #1DAEFF;
+}
+
+.description {
+    color: #7e7e7e;
+    width: 860px;
+}
+
+.video {
+    width: 560px;
+    height: 315px; 
+}

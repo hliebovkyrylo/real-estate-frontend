@@ -1,10 +1,12 @@
 import React from "react";
 
 import styles from "./viewDetails.module.scss";
-import { UserInfo } from "../../components";
+import { FullProject, UserInfo } from "../../components";
 
 export const ViewDetail = () => {
     return (
-        <UserInfo />
+        <div className={styles.main}>
+            <FullProject />
+        </div>
     )
 };
