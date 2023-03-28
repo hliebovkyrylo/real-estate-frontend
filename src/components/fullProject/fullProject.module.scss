@@ -16,7 +16,9 @@
 
 .item {
     border: 1px solid #535353;
-    padding: 19px 25px;
+    padding: 19px 0;
+    text-align: center;
+    width: 200px;
     font-size: 17px;
     border-right: none;
     &:first-child {

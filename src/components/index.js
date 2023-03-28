@@ -4,3 +4,4 @@ export * from "./contact";
 export * from "./footer";
 export * from "./userInfo";
 export * from "./fullProject";
+export * from "./contactWithUser"
