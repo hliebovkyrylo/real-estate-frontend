@@ -1,15 +1,16 @@
 import React from "react";
 
 import { Header } from "./components/header";
-import { Home, ViewDetail } from "./pages";
+import { Home, ViewDetail, SignUp } from "./pages";
 
 function App() {
   return (
     <>
-      <Header></Header>
+      {/* <Header></Header> */}
       <>
         {/* <Home /> */}
-        <ViewDetail />
+        {/* <ViewDetail /> */}
+        <SignUp />
       </>
     </>
   );
