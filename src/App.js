@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Header } from "./components/header";
-import { Home, ViewDetail, SignUp } from "./pages";
+import { Home, ViewDetail, SignUp, Login } from "./pages";
 
 function App() {
   return (
@@ -10,7 +10,8 @@ function App() {
       <>
         {/* <Home /> */}
         {/* <ViewDetail /> */}
-        <SignUp />
+        {/* <SignUp /> */}
+        <Login />
       </>
     </>
   );
