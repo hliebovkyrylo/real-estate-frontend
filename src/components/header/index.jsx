@@ -7,8 +7,6 @@ import styles from "./header.module.scss";
 export const Header = () => {
     const isAuth = false;
 
-    const onClickLogout = () => {};
-
     return (
         <div className={styles.root}>
             <div className={styles.container}>
