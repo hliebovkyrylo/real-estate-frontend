@@ -11,8 +11,6 @@ export const EditProfile = () => {
 
     //upload image
     const imageUrl = '';
-    const [value, setValue] = useState('');
-
     const changeFile = () => {};
     const onClickRemoveImage = () => {};
 
@@ -23,18 +21,16 @@ export const EditProfile = () => {
                     <div className={styles.items}>
                         <h1>Edit Profile</h1>
                         <form action="#">
-                            <form action="/">
-                                <button className={styles.btn__avatar}>
-                                    <UserInfo />
-                                </button>
-                                <input type="file" onChange={changeFile} hidden></input>
-                                {imageUrl && (
-                                    <button onClick={onClickRemoveImage}>Delete image</button>
-                                )}
-                                {imageUrl && (
-                                    <img src={`http://localhost:4000${imageUrl}`} alt="Uploaded" />
-                                )}
-                            </form>
+                            <button className={styles.btn__avatar}>
+                                <UserInfo />
+                            </button>
+                            <input type="file" onChange={changeFile} hidden></input>
+                            {imageUrl && (
+                                <button onClick={onClickRemoveImage}>Delete image</button>
+                            )}
+                            {imageUrl && (
+                                <img src={`http://localhost:4000${imageUrl}`} alt="Uploaded" />
+                            )}
                             <div className={styles.input}>
                                 <input type="input" className={styles.text} placeholder="Firstname" name="name" required />
                             </div>

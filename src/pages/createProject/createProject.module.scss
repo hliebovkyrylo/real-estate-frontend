@@ -1,0 +1,84 @@
+@import '../home/home.module.scss';
+@import '../../components/contactWithUser/contactWithUser.module.scss';
+
+h1 {
+    margin-top: 132px;
+}
+h2 {
+    margin-top: 40px;
+}
+
+.text {
+    width: 402px;
+    margin: 20px 20px 0 0;
+}
+
+.upload__img {
+    width: 480px;
+    height: 705px;
+    background-color: #0E0E0E;
+    border-radius: 20px;
+    margin-top: 40px;
+
+    .upload__items {
+        padding: 270px 160px;
+        text-align: center;
+    }
+
+    .button {
+        padding: 10px 15px;
+        cursor: pointer;
+    }
+}
+
+.img {
+    background: none;
+    border: none;
+}
+
+.editor {
+    margin: 30px 0;
+    background-color: #0E0E0E;
+  
+    :global {
+        .cm-s-easymde {
+            font-size: 22px;
+            color: #fff;
+            background-color: #0E0E0E;
+        }
+        .editor-toolbar {
+            border: 0;
+            background-color: rgb(0 0 0 / 2%);
+
+            button {
+                color: #b6b2b2;
+            }
+
+            button:hover {
+                background-color: #202020;
+                border: none;
+            }
+        }
+        .EasyMDEContainer .CodeMirror {
+            border: none;
+        }
+    }
+}
+
+.buttons {
+    display: flex;
+    margin: 30px 0;
+    
+    .button {
+        background-color: #1DAEFF;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: 0;
+        cursor: pointer;
+    }
+
+    .button:last-child {
+        background: none;
+    }
+}

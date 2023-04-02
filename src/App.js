@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Header } from "./components/header";
-import { Home, ViewDetail, SignUp, Login, UserProfile, EditProfile } from "./pages";
+import { Home, ViewDetail, SignUp, Login, UserProfile, EditProfile, CreateProject } from "./pages";
 
 function App() {
   return (
@@ -13,7 +13,8 @@ function App() {
         {/* <SignUp /> */}
         {/* <Login /> */}
         {/* <UserProfile /> */}
-        <EditProfile />
+        {/* <EditProfile /> */}
+        <CreateProject />
       </>
     </>
   );
