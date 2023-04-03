@@ -10,6 +10,10 @@
 .contact {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 680px) {
+        display: block;
+    }
 }
 
 .text {
@@ -26,30 +30,47 @@
 .form__group {
     display: flex;
     margin-bottom: 64px;
+
+    .form__field {
+        border: none;
+        outline: 0;
+        padding: 6px 0;
+        margin-left: 15px;
+        background-color: transparent;
+        border-bottom: 1px solid #FFFBFB;
+        color: #FFFBFB;
+        width: 227px;
+        font-size: 16px;
+
+        &:focus {
+            border-bottom: 1px solid #1DAEFF;
+        }
+
+        @media (max-width: 680px) {
+            margin: 30px 20px 0 0;
+            width: 150px;
+        }
+    }
+    .button {
+        background-color: #1DAEFF;
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        padding: 11px 36px;
+        border-radius: 5px;
+        margin-left: 15px;
+        cursor: pointer;
+
+        @media (max-width: 680px) {
+            margin-left: 0;
+        }
+    }
 }
 
-.form__field {
-    border: none;
-    outline: 0;
-    padding: 6px 0;
-    margin-left: 15px;
-    background-color: transparent;
-    border-bottom: 1px solid #FFFBFB;
-    color: #FFFBFB;
-    width: 227px;
-    font-size: 16px;
-}
-
-.form__field:focus {
-    border-bottom: 1px solid #1DAEFF;
-}
-
-.button {
-    background-color: #1DAEFF;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    padding: 11px 36px;
-    border-radius: 5px;
-    margin-left: 15px;
-    cursor: pointer;
+@media (max-width: 990px) {
+    .intro__title {
+        font-size: 40px;
+    }  
+    .text {
+        font-size: 20px;
+    }     
 }

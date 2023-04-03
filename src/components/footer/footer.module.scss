@@ -1,17 +1,26 @@
 @import '../../pages/home/home.module.scss';
 
-.text {
-    font-size: 16px;
-    width: 313px;
-    margin-top: 18px;
-    opacity: .6;
-}
-
 .footer {
     display: flex;
     justify-content: space-between;
     color: #fff;
     margin-bottom: 55px;
+
+    @media (max-width: 680px) {
+        display: block;
+        text-align: center;
+    }
+}
+
+.text {
+    font-size: 16px;
+    width: 313px;
+    margin-top: 18px;
+    opacity: .6;
+
+    @media (max-width: 680px) {
+        margin: 18px auto;
+    }
 }
 
 .footer__title {

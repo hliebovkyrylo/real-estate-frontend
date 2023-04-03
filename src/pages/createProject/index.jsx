@@ -33,7 +33,7 @@ export const CreateProject = () => {
     return (
         <>
             <div className={styles.container}>
-                <h1>New Project</h1>
+                <h1 className={styles.h1}>New Project</h1>
                 <form className={styles.form}>
                     <div className={styles.items}>
                         <div className={styles.inputs}>

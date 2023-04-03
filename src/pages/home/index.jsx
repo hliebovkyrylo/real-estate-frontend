@@ -7,7 +7,7 @@ import load_more from "../../assets/images/button/load_more.png";
 
 export const Home = () => {
     return (
-        <body>
+        <>
             <div className={styles.intro}>
                 <div className={styles.container}>
                     <div className={styles.intro__inner}>
@@ -34,6 +34,6 @@ export const Home = () => {
             </section>
             <Contact />
             <Footer />
-        </body>
+        </>
     )
 };

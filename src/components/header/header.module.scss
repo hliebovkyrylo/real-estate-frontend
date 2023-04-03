@@ -1,8 +1,4 @@
-.container {
-    width: 100%;
-    margin: 0 auto;
-    max-width: 1450px;
-}
+@import '../../pages/home/home.module.scss';
 
 .root {
     position: absolute;
@@ -24,25 +20,33 @@
 .nav {
     font-size: 14px;
     font-weight: 700;
-}
 
-.nav__link {
-    text-decoration: none;
-    color: #fff;
-    margin-right: 49px;
-}
+    .nav__link {
+        text-decoration: none;
+        color: #fff;
+        margin-right: 49px;
 
-.nav__link:hover {
-    color: #1DAEFF;
-}
+        @media (max-width: 680px) {
+            display: none;
+            &:last-child {
+                display: block;
+                margin-right: 0;
+            }
+        }
 
-.nav__link:last-child {
-    background-color: #1DAEFF;
-    padding: 11px 24px;
-    border-radius: 10px;
-}
+        &:hover {
+            color: #1DAEFF;
+        }
 
-.nav__link:last-child:hover {
-    background-color: #1a8aca;
-    color: #fff;
+        &:last-child {
+            background-color: #1DAEFF;
+            padding: 11px 24px;
+            border-radius: 10px;
+
+            &:hover {
+                background-color: #1a8aca;
+                color: #fff;
+            }
+        }
+    }
 }
