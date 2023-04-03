@@ -15,7 +15,6 @@ export const Home = () => {
                     </div>
                 </div>
             </div>
-
             <section>
                 <div className={styles.container}>
                     <div className={styles.projects}>
