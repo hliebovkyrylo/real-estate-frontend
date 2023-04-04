@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./home.module.scss";
 import { Project, Contact, Footer } from "../../components";
 
 import load_more from "../../assets/images/button/load_more.png";
 
+import { fetchProjects } from "../../redux/slices/projects";
+
 export const Home = () => {
+    const dispatch = useDispatch();
+    const projects = useSelector((state) => state.projects.projects)
+
+    const isLoading = projects && projects.status === 'loading';
+
+    useEffect(() => {
+        dispatch(fetchProjects())
+    }, []);
+
+    console.log(projects.items); // log the items array to the console
+
     return (
-        <>
+        <body>
             <div className={styles.intro}>
                 <div className={styles.container}>
                     <div className={styles.intro__inner}>
@@ -15,15 +29,17 @@ export const Home = () => {
                     </div>
                 </div>
             </div>
+
             <section>
                 <div className={styles.container}>
                     <div className={styles.projects}>
                         <div className={styles.projects__inner}>
-                            {[...Array(6)].map(() => (
-                                <Project
-                                    poster="https://images.pexels.com/photos/10007306/pexels-photo-10007306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                    price="200.000"
-                                />
+                        {isLoading ? [...Array(6)] : projects && projects.items.map((obj) => (
+                            <Project
+                                _id={obj._id}
+                                poster={obj.poster} 
+                                price={obj.price} 
+                            />
                             ))}
                         </div>
                         <button className={styles.button}>
@@ -34,6 +50,6 @@ export const Home = () => {
             </section>
             <Contact />
             <Footer />
-        </>
+        </body>
     )
 };
