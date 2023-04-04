@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./home.module.scss";
@@ -20,6 +20,15 @@ export const Home = () => {
 
     console.log(projects.items); // log the items array to the console
 
+    /////// View more button ///////
+    const [data, setData] = useState(6)
+
+    const slice = projects.items.slice(0, data)
+
+    const ViewMore = () => {
+        setData(data + data);
+    }
+
     return (
         <body>
             <div className={styles.intro}>
@@ -34,7 +43,7 @@ export const Home = () => {
                 <div className={styles.container}>
                     <div className={styles.projects}>
                         <div className={styles.projects__inner} id="projects">
-                            {isLoading ? [...Array(6)] : projects && projects.items.map((obj) => (
+                            {isLoading ? [...Array(6)] : projects && slice.map((obj) => (
                                 <Project
                                     _id={obj._id}
                                     poster={obj.poster} 
@@ -42,7 +51,7 @@ export const Home = () => {
                                 />
                             ))}
                         </div>
-                        <button className={styles.button}>
+                        <button className={styles.button} onClick={() => ViewMore()}>
                             <img className={styles.button_img} src={load_more} alt="" />
                         </button>
                     </div>
