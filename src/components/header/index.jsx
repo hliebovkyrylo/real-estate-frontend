@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 
 import logo from "../../assets/images/logo/bi_house-door.png";
 
@@ -19,15 +20,15 @@ export const Header = () => {
                         {isAuth ? (
                             <div className={styles.nav__inner}>
                                 <a className={styles.nav__link} href="/">Home</a>
-                                <a className={styles.nav__link} href="/">About Us</a>
-                                <a className={styles.nav__link} href="/">Other Projects</a>
+                                <Link className={styles.nav__link} to="projects" smooth={true}>Other Projects</Link>
+                                <Link className={styles.nav__link} to="contact" smooth={true}>Contact</Link>
                                 <a className={styles.nav__link} href="/users/me">My Profile</a>
                             </div>
                         ) : (
                             <div className={styles.nav__inner}>
                                 <a className={styles.nav__link} href="/">Home</a>
-                                <a className={styles.nav__link} href="/">About Us</a>
-                                <a className={styles.nav__link} href="/">Other Projects</a>
+                                <Link className={styles.nav__link} to="projects" smooth={true}>Other Projects</Link>
+                                <Link className={styles.nav__link} to="contact" smooth={true}>Contact</Link>
                                 <a className={styles.nav__link} href="/auth/login">Sign in</a>
                             </div>
                         )}

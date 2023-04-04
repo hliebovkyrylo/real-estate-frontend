@@ -33,13 +33,13 @@ export const Home = () => {
             <section>
                 <div className={styles.container}>
                     <div className={styles.projects}>
-                        <div className={styles.projects__inner}>
-                        {isLoading ? [...Array(6)] : projects && projects.items.map((obj) => (
-                            <Project
-                                _id={obj._id}
-                                poster={obj.poster} 
-                                price={obj.price} 
-                            />
+                        <div className={styles.projects__inner} id="projects">
+                            {isLoading ? [...Array(6)] : projects && projects.items.map((obj) => (
+                                <Project
+                                    _id={obj._id}
+                                    poster={obj.poster} 
+                                    price={obj.price} 
+                                />
                             ))}
                         </div>
                         <button className={styles.button}>
@@ -48,7 +48,9 @@ export const Home = () => {
                     </div>
                 </div>
             </section>
-            <Contact />
+            <div id="contact">
+                <Contact />
+            </div>
             <Footer />
         </body>
     )
