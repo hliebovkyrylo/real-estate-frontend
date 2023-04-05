@@ -5,9 +5,10 @@ import styles from "./fullProject.module.scss";
 import noVideo from "../../assets/images/background/video.jpg";
 
 export const FullProject = ({
+    _id,
     poster,
     bedrooms,
-    rathrooms,
+    bathrooms,
     yearBuilt,
     size,
     propertyType,
@@ -23,7 +24,7 @@ export const FullProject = ({
                 </div>
                 <div className={styles.items}>
                     <div className={styles.item}>{bedrooms || 'Not indicated'}</div>
-                    <div className={styles.item}>{rathrooms || 'Not indicated'}</div>
+                    <div className={styles.item}>{bathrooms || 'Not indicated'}</div>
                     <div className={styles.item}>{propertyType || 'Not indicated'}</div>
                     <div className={styles.item}>{yearBuilt || 'Not indicated'}</div>
                     <div className={styles.item}>{acceptedCurrencies || 'Not indicated'}</div>
