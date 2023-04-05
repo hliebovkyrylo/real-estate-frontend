@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./project.module.scss";
 
 export const Project = ({
+    _id,
     price,
     poster
 }) => {
@@ -16,7 +17,7 @@ export const Project = ({
                 <div className={styles.project__content}>
                     <div className={styles.project__inner}>
                         <div className={styles.price}>{price}$</div>
-                        <a className={styles.button} href="/projects/:id">View Details</a>
+                        <a className={styles.button} href={`/projects/${_id}`}>View Details</a>
                     </div>
                 </div>
             </div>
