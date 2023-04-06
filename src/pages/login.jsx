@@ -70,6 +70,9 @@ export const Login = () => {
                             <div className={styles.input}>
                                 <button className={styles.button} type="submit">Submit</button>
                             </div>
+                            <div className={styles.input}>
+                                <a className={styles.hrefTo} href="/auth/register">Don't have an account? Sign Up</a>
+                            </div>
                         </form>
                     </div>
                 </div>

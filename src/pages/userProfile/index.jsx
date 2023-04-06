@@ -1,13 +1,23 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 import styles from "./userProfile.module.scss";
 
 import { UserInfo } from "../../components";
+import { logout } from "../../redux/slices/auth";
 
 import add from "../../assets/images/button/add.jpg";
 
+
 export const UserProfile = () => {
-    const onClickLogout = () => {};
+    const dispatch = useDispatch();
+
+    const onClickLogout = () => {
+        if (window.confirm('Are you sure you want to logout?')) {
+            dispatch(logout());
+            window.localStorage.removeItem('token');
+        }
+    };
 
     return (
         <>
@@ -24,7 +34,7 @@ export const UserProfile = () => {
                     </div>
                     <h2>Projects</h2>
                     <div className={styles.createProject}>
-                        <a href="/posts">
+                        <a href="/projects/create">
                             <img className={styles.img_link} src={add} alt="" />
                         </a>
                     </div>

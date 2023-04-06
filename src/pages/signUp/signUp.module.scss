@@ -23,10 +23,16 @@
 
 .button {
     border-radius: 40px;
+    cursor: pointer;
 }
 
 .input {
     margin-top: 15px;
+    .hrefTo {
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+    }
 }
 
 .checkbox {

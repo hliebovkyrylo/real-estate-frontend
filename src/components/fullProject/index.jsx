@@ -3,6 +3,12 @@ import React from "react";
 import styles from "./fullProject.module.scss";
 
 import noVideo from "../../assets/images/background/video.jpg";
+import bedroomsImg from "../../assets/images/icons/4.png";
+import bathroomsImg from "../../assets/images/icons/5.png";
+import propertyTypeImg from "../../assets/images/icons/6.png";
+import yearBuiltImg from "../../assets/images/icons/7.png";
+import acceptedCurrenciesImg from "../../assets/images/icons/8.png";
+import sizeImg from "../../assets/images/icons/9.png";
 
 export const FullProject = ({
     _id,
@@ -23,12 +29,30 @@ export const FullProject = ({
                     <img className={styles.img__bg} src={poster} alt="" />
                 </div>
                 <div className={styles.items}>
-                    <div className={styles.item}>{bedrooms || 'Not indicated'}</div>
-                    <div className={styles.item}>{bathrooms || 'Not indicated'}</div>
-                    <div className={styles.item}>{propertyType || 'Not indicated'}</div>
-                    <div className={styles.item}>{yearBuilt || 'Not indicated'}</div>
-                    <div className={styles.item}>{acceptedCurrencies || 'Not indicated'}</div>
-                    <div className={styles.item}>{size || 'Not indicated'}</div>
+                    <div className={styles.item}>
+                        <img className={styles.icon} src={bedroomsImg} alt="" />
+                        {bedrooms || 'Not indicated'}
+                    </div>
+                    <div className={styles.item}>
+                        <img className={styles.icon} src={bathroomsImg} alt="" />
+                        {bathrooms || 'Not indicated'}
+                    </div>
+                    <div className={styles.item}>
+                        <img className={styles.icon} src={propertyTypeImg} alt="" />
+                        {propertyType || 'Not indicated'}
+                    </div>
+                    <div className={styles.item}>
+                        <img className={styles.icon} src={yearBuiltImg} alt="" />
+                        {yearBuilt || 'Not indicated'}
+                    </div>
+                    <div className={styles.item}>
+                        <img className={styles.icon} src={acceptedCurrenciesImg} alt="" />
+                        {acceptedCurrencies || 'Not indicated'}
+                    </div>
+                    <div className={styles.item}>
+                        <img className={styles.icon} src={sizeImg} alt="" />
+                        {size || 'Not indicated'}
+                    </div>
                 </div>
                 <h3 className={styles.title3}>Description</h3>
                 <div className={styles.description}>{description}</div>
