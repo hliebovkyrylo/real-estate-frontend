@@ -4,9 +4,11 @@ import { Link } from "react-scroll";
 import logo from "../../assets/images/logo/bi_house-door.png";
 
 import styles from "./header.module.scss";
+import { useSelector } from "react-redux";
+import { isAuthSelector } from "../../redux/slices/auth";
 
 export const Header = () => {
-    const isAuth = false;
+    const isAuth = useSelector(isAuthSelector);
 
     return (
         <div className={styles.root}>

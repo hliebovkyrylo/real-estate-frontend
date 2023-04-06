@@ -17,31 +17,31 @@ export const ViewDetail = () => {
 
   return (
     <div className={styles.container}>
-      {project && (
-        <div className={styles.main}>
-          <FullProject
-            _id={project._id}
-            poster={project.poster}
-            description={project.description}
-            bedrooms={project.bedrooms}
-            bathrooms={project.bathrooms}
-            propertyType={project.propertyType}
-            yearBuilt={project.yearBuilt}
-            acceptedCurrencies={project.acceptedCurrencies}
-            size={project.size}
-            videoLink={project.videoLink}
-          />
-          <div className={styles.contact}>
-            <UserInfo
-              avatarUrl={project.avatarUrl}
-              firstName={project.firstName}
-              lastName={project.lastName}
-            />
-            <ContactWithUser />
-          </div>
-        </div>
-      )}
-      <Footer />
+        {project && (
+            <div className={styles.main}>
+                <FullProject
+                    _id={project._id}
+                    poster={project.poster}
+                    description={project.description}
+                    bedrooms={project.bedrooms}
+                    bathrooms={project.bathrooms}
+                    propertyType={project.propertyType}
+                    yearBuilt={project.yearBuilt}
+                    acceptedCurrencies={project.acceptedCurrencies}
+                    size={project.size}
+                    videoLink={project.videoLink}
+                />
+                <div className={styles.contact}>
+                    <UserInfo
+                        avatarUrl={project.avatarUrl}
+                        firstName={project.firstName}
+                        lastName={project.lastName}
+                    />
+                    <ContactWithUser />
+                </div>
+            </div>
+        )}
+        <Footer />
     </div>
   );
 };
