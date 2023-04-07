@@ -1,16 +1,18 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./userProfile.module.scss";
 
 import { UserInfo } from "../../components";
-import { logout } from "../../redux/slices/auth";
+import { isAuthSelector, logout } from "../../redux/slices/auth";
 
 import add from "../../assets/images/button/add.jpg";
+import { Navigate } from "react-router-dom";
 
 
 export const UserProfile = () => {
     const dispatch = useDispatch();
+    const isAuth = useSelector(isAuthSelector);
 
     const onClickLogout = () => {
         if (window.confirm('Are you sure you want to logout?')) {
@@ -18,6 +20,10 @@ export const UserProfile = () => {
             window.localStorage.removeItem('token');
         }
     };
+
+    if (!window.localStorage.getItem('token') && !isAuth) {
+        return <Navigate to="/" />
+    }
 
     return (
         <>
