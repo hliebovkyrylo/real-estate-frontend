@@ -6,12 +6,18 @@ export const fetchProjects = createAsyncThunk('projects/fetchProjects', async ()
     return data;
 });
 
+export const userProjects =createAsyncThunk('projects/userProjects', async () => {
+    const { data } = await axios.get('/myProjects');
+
+    return data;
+});
+
 const initialState = {
     projects: {
         items: [],
         status: 'loading',
     },
-}
+};
 
 const projectsSlice = createSlice({
     name: 'projects',
@@ -29,7 +35,19 @@ const projectsSlice = createSlice({
         [fetchProjects.rejected]: (state) => {
             state.projects.items = [];
             state.projects.status = 'error';
-        }
+        },
+        [userProjects.pending]: (state) => {
+            state.projects.items = [];
+            state.projects.status = 'loading';
+        },
+        [userProjects.fulfilled]: (state, action) => {
+            state.projects.items = action.payload;
+            state.projects.status = 'loaded';
+        },
+        [userProjects.rejected]: (state) => {
+            state.projects.items = [];
+            state.projects.status = 'error';
+        },
     }
 });
 

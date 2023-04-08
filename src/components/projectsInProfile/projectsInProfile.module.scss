@@ -1,0 +1,89 @@
+@import '../../pages/home/home.module.scss';
+
+.smallProject {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    position: relative;
+    background-color: #161616;
+    padding: 16px 40px;
+    border: 1px solid #202020;
+
+    .hrefToProject {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .projectImage {
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+        border-radius: 7px;
+        margin-right: 14px;
+    }
+
+    .projectName {
+        color: #fff;
+        font-size: 18px;
+    }
+
+    .projectItems {
+        color: #fff;
+        position: absolute;
+        margin-left: 500px;
+    }
+
+    .price {
+        margin-left: 700px;
+    }
+
+    .dots__position {
+        margin-left: 1300px;
+    }
+}
+
+
+.buttonDropdown {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    .dots {
+        width: 4px;
+        height: 4px;
+        background: #fff;
+        margin-top: 3px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+
+.buttons {
+    position: absolute;
+    background: #161616;
+    border: 1px solid #303030;
+    z-index: 1000;
+
+    .href {
+        color: #fff;
+        cursor: pointer;
+        background: none;
+        border: 0;
+        text-decoration: none;
+        font-size: 14px;
+        padding: 5px 10px;
+        width: 120px;
+        &:hover {
+            background-color: #303030;
+        }
+    }
+}
+
+button {
+    padding: 0;
+}

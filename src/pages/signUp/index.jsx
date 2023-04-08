@@ -9,6 +9,7 @@ import logo from "../../assets/images/logo/bi_house-door.png";
 import { Navigate } from "react-router-dom";
 
 export const SignUp = () => {
+    ////// show/hide password //////
     const [type, setType] = useState('password')
 
     const togglePassInput = () => {
