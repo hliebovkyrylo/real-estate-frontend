@@ -8,11 +8,21 @@
     background-color: #161616;
     padding: 16px 40px;
     border: 1px solid #202020;
+    @media (max-width: 990px) {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+        width: 300px;
+        padding: 0;
+    }
 
     .hrefToProject {
         display: flex;
         align-items: center;
         text-decoration: none;
+        @media (max-width: 990px) {
+            display: block;
+        }
     }
 
     .projectImage {
@@ -21,6 +31,11 @@
         object-fit: cover;
         border-radius: 7px;
         margin-right: 14px;
+        @media (max-width: 990px) {
+            width: 280px;
+            height: 280px;
+            margin: 20px 0;
+        }
     }
 
     .projectName {
@@ -32,14 +47,27 @@
         color: #fff;
         position: absolute;
         margin-left: 500px;
+        @media (max-width: 990px) {
+            margin: 0 auto;
+            position:initial;
+        }
     }
 
     .price {
         margin-left: 700px;
+        @media (max-width: 990px) {
+            margin: 10px 0;
+        }
     }
 
     .dots__position {
         margin-left: 1300px;
+        @media(max-width: 1280px) {
+            margin-left: 990px;
+        }
+        @media (max-width: 990px) {
+            margin: 10px 0;
+        }
     }
 }
 
@@ -81,6 +109,9 @@
         &:hover {
             background-color: #303030;
         }
+    }
+    @media (max-width: 990px) {
+        right: 30px;
     }
 }
 
