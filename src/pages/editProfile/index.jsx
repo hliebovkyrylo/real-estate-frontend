@@ -1,18 +1,67 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import axios from "../../axios";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./editProfile.module.scss";
 
 import { UserInfo } from "../../components/userInfo";
-import { useCallback } from "react";
+
+import noavatar from "../../assets/images/avatar/no-avatar.png";
 
 export const EditProfile = () => {
-    //delete account
+    const inputFileRef = useRef(null);
+    const navigate = useNavigate();
+    const [ user, setUser ] = useState();
+
+    ////// updating user info //////
+    const [firstName, setFirstName] = useState();
+    const [lastName, setLastName] = useState();
+    const [email, setEmail] = useState();
+    const [avatarUrl, setavatarUrl] = useState();
+
+    useEffect(() => {
+        axios.get('/users/me')
+        .then(res => setUser(res.data))
+        .catch(error => console.log(error))
+    }, []);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.patch('/users/update', {
+            firstName,
+            lastName, 
+            avatarUrl,
+            email,
+        }).then((res) => {
+            console.log(res.data)
+        }).catch((error) => {
+            console.log(error);
+        }) 
+        navigate('/users/me')
+    }
+
+    ////// delete account //////
     const onClickDelete = () => {};
 
-    //upload image
-    const imageUrl = '';
-    const changeFile = () => {};
-    const onClickRemoveImage = () => {};
+    ////// upload image //////
+    const [uploadedAvatarUrl, setUploadedAvatarUrl] = useState();
+
+    const changeFile = async (ev) => {
+        try {
+            const formData = new FormData;
+            const file = ev.target.files[0];
+            formData.append('image', file);
+            const { data } = await axios.post('/uploadImage', formData);
+            setUploadedAvatarUrl(data.url);
+
+        } catch (error) {
+            console.warn(error);
+            alert('Failed to upload image');
+        }
+    };
+    const onClickRemoveImage = () => {
+        setUploadedAvatarUrl('');
+    };
 
     return (
         <>
@@ -20,28 +69,33 @@ export const EditProfile = () => {
                 <div className={styles.main}>
                     <div className={styles.items}>
                         <h1>Edit Profile</h1>
-                        <form action="#">
-                            <button className={styles.btn__avatar}>
-                                <UserInfo />
+                        <form onSubmit={handleSubmit}>
+                            <button type="button" onClick={() => inputFileRef.current.click()} className={styles.btn__avatar}>
+                                <UserInfo onChange={(e) => setavatarUrl(e.target.value)} value={avatarUrl}
+                                    avatarUrl={uploadedAvatarUrl || user?.avatarUrl || noavatar}
+                                    firstName={''}
+                                    lastName={''}
+                                />
                             </button>
-                            <input type="file" onChange={changeFile} hidden></input>
-                            {imageUrl && (
-                                <button onClick={onClickRemoveImage}>Delete image</button>
+                            <input ref={inputFileRef} type="file" onChange={changeFile} hidden></input>
+                            {uploadedAvatarUrl && (
+                                <>
+                                    <button className={styles.button__remove} onClick={onClickRemoveImage}>Delete image</button>
+                                </>
                             )}
-                            {imageUrl && (
-                                <img src={`http://localhost:4000${imageUrl}`} alt="Uploaded" />
-                            )}
                             <div className={styles.input}>
-                                <input type="input" className={styles.text} placeholder="Firstname" name="name" required />
+                                <input onChange={(e) => setFirstName(e.target.value)} value={firstName} type="input" className={styles.text} placeholder="Firstname" name="name" />
                             </div>
                             <div className={styles.input}>
-                                <input type="input" className={styles.text} placeholder="Lastname" name="name" required />
+                                <input onChange={(e) => setLastName(e.target.value)} value={lastName} type="input" className={styles.text} placeholder="Lastname" name="name" />
                             </div>
                             <div className={styles.input}>
-                                <input type="email" className={styles.text} placeholder="Email" name="email" required />
+                                <input onChange={(e) => setEmail(e.target.value)} value={email} type="email" className={styles.text} placeholder="Email" name="email"/>
                             </div>
                             <div className={styles.input}>
-                                <button className={styles.button} type="submit">Save</button>
+                                <a href="/">
+                                    <button className={styles.button} type="submit">Save</button>
+                                </a>
                             </div>
                         </form>
                         <button onClick={onClickDelete} className={styles.delete}>Delete Account</button>
