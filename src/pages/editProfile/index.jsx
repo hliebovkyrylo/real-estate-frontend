@@ -20,7 +20,7 @@ export const EditProfile = () => {
     const [avatarUrl, setavatarUrl] = useState();
 
     useEffect(() => {
-        axios.get('/users/me')
+        axios.get('/users/me') //get user info
         .then(res => setUser(res.data))
         .catch(error => console.log(error))
     }, []);
@@ -52,7 +52,8 @@ export const EditProfile = () => {
             const file = ev.target.files[0];
             formData.append('image', file);
             const { data } = await axios.post('/uploadImage', formData);
-            setUploadedAvatarUrl(data.url);
+            setUploadedAvatarUrl(data.url); 
+            setavatarUrl(data.url)// set avatarUrl state when the user selects a file
 
         } catch (error) {
             console.warn(error);
@@ -61,6 +62,7 @@ export const EditProfile = () => {
     };
     const onClickRemoveImage = () => {
         setUploadedAvatarUrl('');
+        setavatarUrl(''); // remove the uploaded avatar when the user clicks on the "Delete image" button
     };
 
     return (
