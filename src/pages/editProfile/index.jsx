@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "../../axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import styles from "./editProfile.module.scss";
 
 import { UserInfo } from "../../components/userInfo";
+import { logout } from "../../redux/slices/auth";
 
 export const EditProfile = () => {
+    const dispatch = useDispatch()
     const inputFileRef = useRef(null);
     const navigate = useNavigate();
     const [ user, setUser ] = useState();
@@ -39,7 +42,19 @@ export const EditProfile = () => {
     }
 
     ////// delete account //////
-    const onClickDelete = () => {};
+    const onClickDelete = async () => {
+        try {
+            await axios.delete('/users/delete');
+            console.log('Account deleted succefully');
+            navigate('/')
+
+            dispatch(logout());
+            window.localStorage.removeItem('token');
+        } catch (error) {
+            console.warn(error);
+            alert('Failed to delete account')
+        }
+    };
 
     ////// upload image //////
     const [uploadedAvatarUrl, setUploadedAvatarUrl] = useState();
