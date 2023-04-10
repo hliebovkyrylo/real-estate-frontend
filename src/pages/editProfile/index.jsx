@@ -72,7 +72,7 @@ export const EditProfile = () => {
                         <form onSubmit={handleSubmit}>
                             <button type="button" onClick={() => inputFileRef.current.click()} className={styles.btn__avatar}>
                                 <UserInfo onChange={(e) => setavatarUrl(e.target.value)} value={avatarUrl}
-                                    avatarUrl={user?.avatarUrl || uploadedAvatarUrl}
+                                    avatarUrl={uploadedAvatarUrl || user?.avatarUrl}
                                     firstName={''}
                                     lastName={''}
                                 />
