@@ -6,8 +6,6 @@ import styles from "./editProfile.module.scss";
 
 import { UserInfo } from "../../components/userInfo";
 
-import noavatar from "../../assets/images/avatar/no-avatar.png";
-
 export const EditProfile = () => {
     const inputFileRef = useRef(null);
     const navigate = useNavigate();
@@ -74,17 +72,17 @@ export const EditProfile = () => {
                         <form onSubmit={handleSubmit}>
                             <button type="button" onClick={() => inputFileRef.current.click()} className={styles.btn__avatar}>
                                 <UserInfo onChange={(e) => setavatarUrl(e.target.value)} value={avatarUrl}
-                                    avatarUrl={uploadedAvatarUrl || user?.avatarUrl || noavatar}
+                                    avatarUrl={user?.avatarUrl || uploadedAvatarUrl}
                                     firstName={''}
                                     lastName={''}
                                 />
                             </button>
                             <input ref={inputFileRef} type="file" onChange={changeFile} hidden></input>
-                            {uploadedAvatarUrl && (
-                                <>
+                            <div>
+                                {uploadedAvatarUrl || (user && user.avatarUrl) ? (
                                     <button className={styles.button__remove} onClick={onClickRemoveImage}>Delete image</button>
-                                </>
-                            )}
+                                ) : null}
+                            </div>
                             <div className={styles.input}>
                                 <input onChange={(e) => setFirstName(e.target.value)} value={firstName} type="input" className={styles.text} placeholder="Firstname" name="name" />
                             </div>
