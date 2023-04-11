@@ -23,8 +23,7 @@ export const ViewDetail = ({userInf}) => {
                 <div className={styles.main}>
                     <FullProject
                         _id={project._id}
-                        poster={project.poster}
-                        description={project.description}
+                        poster={`http://localhost:4000${project.poster}`}
                         bedrooms={project.bedrooms}
                         bathrooms={project.bathrooms}
                         propertyType={project.propertyType}
@@ -33,7 +32,9 @@ export const ViewDetail = ({userInf}) => {
                         size={project.size}
                         videoLink={project.videoLink}
                         user={project.user}
-                    />
+                        description={project.description}
+                        >
+                    </FullProject>
                 </div>
             )}
             <Footer />

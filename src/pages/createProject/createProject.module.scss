@@ -17,7 +17,16 @@ h2 {
     }
 }
 
+.preview {
+    width: 480px;
+    height: 705px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
 .upload__img {
+    border: 0;
+    cursor: pointer;
     width: 480px;
     height: 705px;
     background-color: #0E0E0E;

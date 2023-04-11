@@ -1,23 +1,90 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import SimpleMDE from "react-simplemde-editor";
+import axios from "../../axios";
 
 import styles from "./createProject.module.scss";
 import 'easymde/dist/easymde.min.css';
 
 import upload from "../../assets/images/button/image.png";
+import { useNavigate } from "react-router-dom";
 
 export const CreateProject = () => {
-    const imageUrl = '';
-    const [value, setValue] = useState('');
+    const [description, setDescription] = useState('');
+    const inputFileRef = useRef(null);
+    const navigate = useNavigate();
 
-    const changeFile = () => {};
+    ////// project elements //////
+    const [projectsName, setProjectsName] = useState('');
+    const [price, setPrice] = useState('');
+    const [address, setAddress] = useState('');
+    const [propertyType, setPropertyType] = useState('');
+    const [neighbourhood, setNeighbourhood] = useState('');
+    const [acceptedCurrencies, setAcceptedCurrencies] = useState('');
+    const [size, setSize] = useState('');
+    const [bedrooms, setBedrooms] = useState('');
+    const [bathrooms, setBathrooms] = useState('');
+    const [yearBuilt, setYearBuilt] = useState('');
+    const [floors, setFloors] = useState('');
+    const [poster, setPoster] = useState('');
+    const [videoLink, setVideoLink] = useState('');
 
-    const onClickRemoveImage = () => {};
+    ////// sending the created project to the backend //////
+    const onSubmit = async (ev) => {
+        try {
+            ev.preventDefault(); // prevent default form submission behavior
 
-    const onChange = useCallback((value) => {
-        setValue(value);
-    }, []);
+            const fields = {
+                projectsName,
+                price,
+                address,
+                propertyType,
+                neighbourhood,
+                acceptedCurrencies,
+                size,
+                bedrooms,
+                bathrooms,
+                yearBuilt,
+                floors,
+                poster,
+                description,
+                videoLink,
+            };
 
+            const { data } = await axios.post('/projects', fields);
+
+            const _id = data._id;
+
+            navigate(`/projects/${_id}`);
+
+        } catch (error) {
+            console.error(error);
+            alert('Failed to create project!');
+        }
+    };
+
+    ////// upload/remove image //////
+    const [uploadedPoster, setUploadedPoster] = useState();
+
+    const changeFile = async (ev) => {
+        try {
+            const formData = new FormData;
+            const file = ev.target.files[0];
+            formData.append('image', file);
+            const { data } = await axios.post('/uploadImage', formData);
+            setUploadedPoster(data.url);
+            setPoster(data.url);
+        } catch (error) {
+            console.warn(error);
+            alert('Failed to upload image!');
+        }
+    };
+
+    const onClickRemoveImage = () => {
+        setUploadedPoster('');
+        setPoster('');
+    };
+
+    ////// SimpleMDE tincture //////
     const options = useMemo(() => ({
         spellChecker: false,
         maxHeight: '400px',
@@ -30,58 +97,146 @@ export const CreateProject = () => {
         },
     }), []);
 
+    const onChange = useCallback((value) => {
+        setDescription(value);
+    }, []);
+
     return (
         <>
             <div className={styles.container}>
                 <h1 className={styles.h1}>New Project</h1>
-                <form className={styles.form}>
+                <form onSubmit={onSubmit} className={styles.form}>
                     <div className={styles.items}>
                         <div className={styles.inputs}>
-                            <div className={styles.input}>
-                                <input type="input" className={styles.text} placeholder="Price" name="text" required />
-                                <input type="input" className={styles.text} placeholder="Address" name="email" required />
+                        <div className={styles.input}>
+                                <input 
+                                    value={projectsName}
+                                    onChange={(e) => setProjectsName(e.target.value)} 
+                                    type="input" 
+                                    className={styles.text} 
+                                    placeholder="Project name" 
+                                    required 
+                                />
                             </div>
                             <div className={styles.input}>
-                                <input type="input" className={styles.text} placeholder="Property type" name="text" required />
-                                <input type="input" className={styles.text} placeholder="Neighbourhood" name="text" required />
+                                <input 
+                                    value={price} 
+                                    onChange={(e) => setPrice(e.target.value)}  
+                                    type="input" 
+                                    className={styles.text} 
+                                    placeholder="Price" 
+                                    required 
+                                />
+                                <input value={address} 
+                                    onChange={(e) => setAddress(e.target.value)}  
+                                    type="input" 
+                                    className={styles.text} 
+                                    placeholder="Address" 
+                                    required 
+                                />
+                            </div>
+                            <div className={styles.input}>
+                                <input 
+                                    value={propertyType} 
+                                    onChange={(e) => setPropertyType(e.target.value)}  
+                                    type="input" 
+                                    className={styles.text} 
+                                    placeholder="Property type" 
+                                    required 
+                                />
+                                <input 
+                                    value={neighbourhood} 
+                                    onChange={(e) => setNeighbourhood(e.target.value)}  
+                                    type="input" 
+                                    className={styles.text} 
+                                    placeholder="Neighbourhood" 
+                                    required 
+                                />
                             </div>
                         </div>
                         <h2>Features</h2>
                         <div className={styles.input}>
-                            <input type="input" className={styles.text} placeholder="Accepted currencies" name="text" required />
+                            <input 
+                                value={acceptedCurrencies} 
+                                onChange={(e) => setAcceptedCurrencies(e.target.value)} 
+                                type="input" 
+                                className={styles.text} 
+                                placeholder="Accepted currencies" 
+                                required 
+                            />
                         </div>
                         <div className={styles.input}>
-                            <input type="input" className={styles.text} placeholder="Size" name="text" required />
+                            <input 
+                                value={size} 
+                                onChange={(e) => setSize(e.target.value)}  
+                                type="input" 
+                                className={styles.text} 
+                                placeholder="Size" 
+                                required />
                         </div>
                         <div className={styles.input}>
-                            <input type="input" className={styles.text} placeholder="Bedrooms" name="text" required />
-                            <input type="input" className={styles.text} placeholder="Bathrooms" name="text" required />
+                            <input 
+                                value={bedrooms} 
+                                onChange={(e) => setBedrooms(e.target.value)}  
+                                type="input" className={styles.text} 
+                                placeholder="Bedrooms" 
+                                required 
+                            />
+                            <input 
+                                value={bathrooms} 
+                                onChange={(e) => setBathrooms(e.target.value)}  
+                                type="input" className={styles.text} 
+                                placeholder="Bathrooms" 
+                                required 
+                            />
                         </div>
                         <div className={styles.input}>
-                            <input type="input" className={styles.text} placeholder="Year built" name="text" required />
-                            <input type="input" className={styles.text} placeholder="Floors" name="text" required />
+                            <input 
+                                value={yearBuilt} 
+                                onChange={(e) => setYearBuilt(e.target.value)}  
+                                type="input" 
+                                className={styles.text} 
+                                placeholder="Year built" 
+                                required 
+                            />
+                            <input 
+                                value={floors} 
+                                onChange={(e) => setFloors(e.target.value)}  
+                                type="input" 
+                                className={styles.text} 
+                                placeholder="Floors" 
+                                required 
+                            />
                         </div>
-                        <div className={styles.upload__img}>
-                            <div className={styles.upload__items}>
-                                <img src={upload} alt="" />
-                                <button className={styles.button}>Upload Poster</button>
-                                <input type="file" onChange={changeFile} hidden/>
-                                {imageUrl && (
-                                    <button onClick={onClickRemoveImage}>Delete image</button>
-                                )}
-                                {imageUrl && (
-                                    <img src={`http://localhost:4000${imageUrl}`} alt="Uploaded" />
-                                )}
+                        <button onClick={() => inputFileRef.current.click()} type="button" className={styles.upload__img}>
+                            <div value={poster} onChange={(e) => setPoster(e.target.value)}>
+                                {poster || uploadedPoster ? (
+                                    <img
+                                        src={`http://localhost:4000${poster}` || `http://localhost:4000${uploadedPoster}`}
+                                        alt="Project"
+                                        className={styles.preview}
+                                    />
+                                ) : (
+                                    <div className={styles.upload__items}>
+                                        <img src={upload} alt="Upload" className={styles.upload__icon} />
+                                        <p className={styles.button}>Upload image</p>
+                                    </div>
+                                )
+                                }
                             </div>
-                        </div>
-                        <SimpleMDE className={styles.editor} value={value} onChange={onChange} options={options}/>
+                        </button>
+                        {poster && (
+                            <button onClick={onClickRemoveImage}>Delete image</button>
+                        )}
+                        <input ref={inputFileRef} type="file" onChange={changeFile} hidden/>
+                        <SimpleMDE className={styles.editor} value={description} onChange={onChange} options={options}/>
                         <div className={styles.input}>
-                            <input type="input" className={styles.text} placeholder="Video url" name="text" required />
+                            <input value={videoLink} onChange={(e) => setVideoLink(e.target.value)} type="input" className={styles.text} placeholder="Video url" />
                         </div>
                         <div className={styles.buttons}>
                             <button className={styles.button} type="submit">Publish</button>
                             <a href="/">
-                                <button className={styles.button}>Cancellation</button>
+                                <div className={styles.button}>Cancellation</div>
                             </a>
                         </div>
                     </div>

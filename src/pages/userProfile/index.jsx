@@ -67,7 +67,7 @@ export const UserProfile = () => {
                         {isLoading ? [...Array(5)] : projects.items.map((obj) => (
                             <ProjectsInProfile
                                 _id={obj._id}
-                                poster={obj.poster}
+                                poster={`http://localhost:4000${obj.poster}`}
                                 projectsName={obj.projectsName}
                                 price={obj.price}
                                 size={obj.size}
