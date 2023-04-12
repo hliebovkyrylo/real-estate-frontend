@@ -1,17 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../../axios";
 
-export const fetchUserData = createAsyncThunk('auth/fetchUserData', async (params) => {
+export const fetchUserData = createAsyncThunk('auth/fetchUserData', async (params) => { //login 
     const { data } = await axios.post('/auth/login', params);
     return data;
 });
 
-export const fetchRegister = createAsyncThunk('auth/fetchRegister', async (params) => {
+export const fetchRegister = createAsyncThunk('auth/fetchRegister', async (params) => { //register
     const { data } = await axios.post('/auth/register', params);
     return data;
 });
 
-export const fetchAuthMe = createAsyncThunk('auth/fetchAuthMe', async () => {
+export const fetchAuthMe = createAsyncThunk('auth/fetchAuthMe', async () => { //getting user information
     const { data } = await axios.get('/users/me');
     return data;
 });
@@ -30,6 +30,7 @@ const authSlice = createSlice({
         },
     },
     extraReducers: {
+        ////// login //////
         [fetchUserData.pending]: (state) => {
             state.data= null;
             state.status = 'loading';
@@ -42,6 +43,7 @@ const authSlice = createSlice({
             state.data= null;
             state.status = 'error';
         },
+        ////// getting user info //////
         [fetchAuthMe.pending]: (state) => {
             state.data= null;
             state.status = 'loading';
@@ -54,6 +56,7 @@ const authSlice = createSlice({
             state.data= null;
             state.status = 'error';
         },
+        ////// register //////
         [fetchRegister.pending]: (state) => {
             state.data= null;
             state.status = 'loading';

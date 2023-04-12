@@ -64,7 +64,7 @@ export const UserProfile = () => {
                     </div>
                     <h2>Projects</h2>
                     <div className={styles.myProjects}>
-                        {isLoading ? [...Array(5)] : projects.items.map((obj) => (
+                        {isLoading ? [...Array(5)] : (projects?.items && projects.items.map((obj) => (
                             <ProjectsInProfile
                                 _id={obj._id}
                                 poster={`http://localhost:4000${obj.poster}`}
@@ -72,7 +72,7 @@ export const UserProfile = () => {
                                 price={obj.price}
                                 size={obj.size}
                             />
-                        ))}
+                        )))}
                     </div>
                     <div className={styles.createProject}>
                         <a href="/projects/create">

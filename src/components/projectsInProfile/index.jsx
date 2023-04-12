@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import styles from "./projectsInProfile.module.scss";
+
+import { fetchDeleteProject } from "../../redux/slices/projects";
 
 export const ProjectsInProfile = ({
     _id,
@@ -9,6 +13,16 @@ export const ProjectsInProfile = ({
     size,
     price,
 }) => {
+    const dispatch = useDispatch();
+
+    ////// deleting projects ///////
+    const onClickDeleteProject = () => {
+        if (window.confirm('Are you sure you want to delete this project?')) {
+            dispatch(fetchDeleteProject(_id));
+        }
+    };
+
+    ////// dropdown //////
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
@@ -36,7 +50,7 @@ export const ProjectsInProfile = ({
                                     <button className={styles.href}>
                                         <a className={styles.href} href="#">Edit project</a>
                                     </button>
-                                    <button className={styles.href}>Delete project</button>
+                                    <button onClick={onClickDeleteProject} className={styles.href}>Delete project</button>
                                 </div>
                             ) : null}
                         </div>
