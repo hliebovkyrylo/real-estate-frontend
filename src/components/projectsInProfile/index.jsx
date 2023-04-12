@@ -48,7 +48,7 @@ export const ProjectsInProfile = ({
                             {open ? (
                                 <div className={styles.buttons}>
                                     <button className={styles.href}>
-                                        <a className={styles.href} href="#">Edit project</a>
+                                        <a className={styles.href} href={`/projects/${_id}/update`}>Edit project</a>
                                     </button>
                                     <button onClick={onClickDeleteProject} className={styles.href}>Delete project</button>
                                 </div>

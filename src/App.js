@@ -24,6 +24,7 @@ function App() {
         <Route path="/users/me" element={<UserProfile />} />
         <Route path="/users/update" element={<EditProfile />} />
         <Route path="/projects/create" element={<CreateProject /> } /> 
+        <Route path="/projects/:id/update" element={<CreateProject /> } />
       </Routes>
     </>
   );

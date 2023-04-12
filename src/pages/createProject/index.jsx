@@ -1,17 +1,19 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import SimpleMDE from "react-simplemde-editor";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "../../axios";
 
 import styles from "./createProject.module.scss";
 import 'easymde/dist/easymde.min.css';
 
 import upload from "../../assets/images/button/image.png";
-import { useNavigate } from "react-router-dom";
 
 export const CreateProject = () => {
     const [description, setDescription] = useState('');
     const inputFileRef = useRef(null);
     const navigate = useNavigate();
+    const { id } = useParams();
+    const isEditing = Boolean(id);
 
     ////// project elements //////
     const [projectsName, setProjectsName] = useState('');
@@ -50,9 +52,11 @@ export const CreateProject = () => {
                 videoLink,
             };
 
-            const { data } = await axios.post('/projects', fields);
+            const { data } = isEditing 
+                ? await axios.patch(`/projects/${id}`, fields) 
+                : await axios.post('/projects', fields);
 
-            const _id = data._id;
+            const _id = isEditing ? id : data._id;
 
             navigate(`/projects/${_id}`);
 
@@ -83,6 +87,33 @@ export const CreateProject = () => {
         setUploadedPoster('');
         setPoster('');
     };
+
+    //////
+    useEffect(() => {
+        if (id) {
+            axios.get(`/projects/${id}`)
+            .then(({ data }) => {
+                setProjectsName(data.projectsName);
+                setPrice(data.price);
+                setAddress(data.address);
+                setPropertyType(data.propertyType);
+                setNeighbourhood(data.neighbourhood);
+                setAcceptedCurrencies(data.acceptedCurrencies);
+                setSize(data.size);
+                setBedrooms(data.bedrooms);
+                setBathrooms(data.bathrooms);
+                setYearBuilt(data.yearBuilt);
+                setFloors(data.floors);
+                setPoster(data.poster);
+                setDescription(data.description);
+                setVideoLink(data.videoLink);
+            })
+            .catch(error => {
+                console.warn(error);
+                alert('Failed to get project!');
+            });
+        }
+    }, []);
 
     ////// SimpleMDE tincture //////
     const options = useMemo(() => ({
@@ -234,7 +265,7 @@ export const CreateProject = () => {
                             <input value={videoLink} onChange={(e) => setVideoLink(e.target.value)} type="input" className={styles.text} placeholder="Video url" />
                         </div>
                         <div className={styles.buttons}>
-                            <button className={styles.button} type="submit">Publish</button>
+                            <button className={styles.button} type="submit">{isEditing ? 'Save' : 'Publish'}</button>
                             <a href="/">
                                 <div className={styles.button}>Cancellation</div>
                             </a>

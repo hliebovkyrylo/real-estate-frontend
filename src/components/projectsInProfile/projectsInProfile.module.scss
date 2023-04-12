@@ -73,11 +73,18 @@
 
 
 .buttonDropdown {
-    background: none;
+    background: 0;
     border: none;
     cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    &:hover {
+        background-color: #353535;
+    }
 
     .dots {
+        margin: 0 auto;
         width: 4px;
         height: 4px;
         background: #fff;
