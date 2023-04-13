@@ -88,7 +88,7 @@ export const CreateProject = () => {
         setPoster('');
     };
 
-    //////
+    ////// updating project //////
     useEffect(() => {
         if (id) {
             axios.get(`/projects/${id}`)

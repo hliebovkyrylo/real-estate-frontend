@@ -15,39 +15,46 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .nav__isAuth {
+        display: flex;
+        align-items: center;
+    }
 }
 
-.nav {
+.headerForPc {
+    @media(max-width: 990px) {
+        display: none;
+    }
+}
+
+.navToggle {
+    display: none;
+    @media(max-width: 990px) {
+        display: block;
+    }
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 49px;
+    cursor: pointer;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 800;
 
-    .nav__link {
-        text-decoration: none;
+    &:hover {
+        color: #1DAEFF;
+    }
+}
+
+.lastButton {
+    background-color: #1DAEFF;
+    padding: 11px 24px;
+    border-radius: 10px;
+
+    &:hover {
+        background-color: #0f91db;
         color: #fff;
-        margin-right: 49px;
-        cursor: pointer;
-
-        @media (max-width: 680px) {
-            display: none;
-            &:last-child {
-                display: block;
-                margin-right: 0;
-            }
-        }
-
-        &:hover {
-            color: #1DAEFF;
-        }
-
-        &:last-child {
-            background-color: #1DAEFF;
-            padding: 11px 24px;
-            border-radius: 10px;
-
-            &:hover {
-                background-color: #1a8aca;
-                color: #fff;
-            }
-        }
     }
 }

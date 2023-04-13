@@ -3,12 +3,11 @@ import axios from "../../axios";
 import { useParams } from "react-router-dom";
 
 import styles from "./viewDetails.module.scss";
-import { FullProject, UserInfo, ContactWithUser, Footer } from "../../components";
+import { FullProject, Footer } from "../../components";
 
-export const ViewDetail = ({userInf}) => {
+export const ViewDetail = () => {
     const { id } = useParams();
     const [project, setProject] = useState();
-    const [user, setUser] = useState();
 
     //get project
     useEffect(() => {

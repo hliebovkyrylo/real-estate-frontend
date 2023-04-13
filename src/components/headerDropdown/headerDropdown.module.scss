@@ -1,0 +1,53 @@
+.img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 0;
+}
+
+.buttons {
+    position: absolute;
+    background: #161616;
+    margin-top: 5px;
+    box-shadow: #303030;
+    width: 140px;
+
+    @media (max-width: 1280px) {
+        right: 70px;
+    }
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid #161616;
+        top: -7px;
+        left: 12px;
+        @media (max-width: 1280px) {
+            left: 95px;
+        }
+    }
+
+    .href {
+        color: #fff;
+        cursor: pointer;
+        background: none;
+        border: 0;
+        text-decoration: none;
+        font-size: 14px;
+        padding: 5px 10px;
+        width: 140px;
+        &:hover {
+            background-color: #303030;
+        }
+    }
+}
+
+button {
+    padding: 0;
+}

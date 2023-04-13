@@ -33,7 +33,7 @@ export const UserProfile = () => {
     }, []);
 
     if (!user) {
-        // render loading indicator or message if user is undefined
+        // render message if user is undefined
         return <p>User not defined</p>
     }
 

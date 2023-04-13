@@ -6,3 +6,5 @@ export * from "./userInfo";
 export * from "./fullProject";
 export * from "./contactWithUser";
 export * from "./projectsInProfile";
+export * from "./headerDropdown";
+export * from "./navToggle";
