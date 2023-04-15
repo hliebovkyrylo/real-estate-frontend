@@ -46,7 +46,7 @@ export const Home = () => {
                             {isLoading ? [...Array(6)] : projects && slice.map((obj) => (
                                 <Project
                                     _id={obj._id}
-                                    poster={`http://localhost:4000${obj.poster}`} 
+                                    poster={`process.env.REACT_APP_API_URL${obj.poster}`} 
                                     price={obj.price} 
                                 />
                             ))}

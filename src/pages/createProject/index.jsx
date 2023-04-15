@@ -243,7 +243,7 @@ export const CreateProject = () => {
                             <div value={poster} onChange={(e) => setPoster(e.target.value)}>
                                 {poster || uploadedPoster ? (
                                     <img
-                                        src={`http://localhost:4000${poster}` || `http://localhost:4000${uploadedPoster}`}
+                                        src={`process.env.REACT_APP_API_URL${poster}` || `process.env.REACT_APP_API_URL${uploadedPoster}`}
                                         alt="Project"
                                         className={styles.preview}
                                     />
