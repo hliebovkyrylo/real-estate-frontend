@@ -46,7 +46,7 @@ export const Header = () => {
                                 <a className={styles.nav__link} href="/">Home</a>
                                 <Link className={styles.nav__link} to="projects" smooth={true}>Other Projects</Link>
                                 <Link className={styles.nav__link} to="contact" smooth={true}>Contact</Link>
-                                <a className={[styles.nav__link, styles.lastButton].join(' ')}href="/auth/login">Sign in</a>
+                                <a className={[styles.nav__link, styles.button_href].join(' ')}href="/auth/login">Sign in</a>
                             </div>
                         )}  
                     </div>

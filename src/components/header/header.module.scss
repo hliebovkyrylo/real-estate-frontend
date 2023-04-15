@@ -48,13 +48,6 @@
     }
 }
 
-.lastButton {
-    background-color: #1DAEFF;
-    padding: 11px 24px;
-    border-radius: 10px;
-
-    &:hover {
-        background-color: #0f91db;
-        color: #fff;
-    }
+.button_href:hover {
+    color: #fff;
 }

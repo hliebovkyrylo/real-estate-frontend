@@ -11,6 +11,10 @@
         max-width: 800px;
     }
 
+    @media (max-width: 800px) {
+        max-width: 700px;
+    }
+
     @media (max-width: 680px) {
         max-width: 500px;
     }
@@ -34,11 +38,21 @@
 .intro__title {
     font-size: 70px;
     font-weight: 700;
+    display: flex;
+    flex-wrap: wrap;
     color: #fff;
     max-width: 805px;
 
-    @media (max-width: 500px) {
+    @media (max-width: 800px) {
         font-size: 55px;
+    }
+
+    .titleblue {
+        margin-left: 20px;
+        color: #1DAEFF;
+        @media (max-width: 680px) {
+            margin-left: 0;
+        }
     }
 }
 
@@ -75,4 +89,74 @@
             cursor: pointer;
         }
     }
+}
+
+.section_about {
+    height: 736px;
+    background: url(../../assets/images/background/about_us.jpg) center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.about_us {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width:660px) {
+        display: block;
+        text-align: center;
+    }
+
+    .about_items {
+        max-width: 666px;
+
+        .about_frame {
+            width: 267px;
+            text-align: center;
+            margin-top: 50px;
+            @media (max-width:660px) {
+                margin: 50px auto;
+            }
+        }
+    }
+}
+
+.subtitle {
+    color: #fff;
+    margin-bottom: 36px;
+}
+
+.about_description {
+    color: #fff;
+    opacity: .8;
+    margin: 10px 0;
+}
+
+.about {
+    margin-top: 150px;
+}
+
+.textAbout {
+    color: #fff;
+    opacity: .5;
+}
+
+.button_href {
+    color: #fff;
+    background-color: #1DAEFF;
+    padding: 11px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0px 5px 40px #2D5981;
+    
+    &:hover {
+        background-color: #3db6fc;
+        box-shadow: 0px 5px 40px #3a71a5;
+    }
+}
+
+.h1 {
+    color: #1DAEFF;
+    font-size: 32px;
 }

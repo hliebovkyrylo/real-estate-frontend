@@ -21,7 +21,7 @@ export const Contact = () => {
                             <input type="input" class={styles.form__field} placeholder="Phone Number" name="number" required />
                         </div>
                         <div class={styles.form__group}>
-                            <button type="submit" className={styles.button}>Submit</button>
+                            <button type="submit" className={[styles.button, styles.button_href].join(' ')}>Submit</button>
                         </div>
                     </form>
                 </div>
