@@ -31,7 +31,7 @@ export const HeaderDropdown = ({ avatarUrl }) => {
     return (
         <div className={styles.root}>
             <button className={styles.img} onClick={handleOpen} type="button">
-                <img className={styles.img} src={avatarUrl ? `http://localhost:4000${avatarUrl}` : noavatar} alt="" />
+                <img className={styles.img} src={avatarUrl ? `process.env.REACT_APP_API_URL${avatarUrl}` : noavatar} alt="" />
             </button>
             {isActive ? (
                 <>
