@@ -22,7 +22,7 @@ export const ViewDetail = () => {
                 <div className={styles.main}>
                     <FullProject
                         _id={project._id}
-                        poster={`process.env.REACT_APP_API_URL${project.poster}`}
+                        poster={`${process.env.REACT_APP_API_URL}${project.poster}`}
                         bedrooms={project.bedrooms}
                         bathrooms={project.bathrooms}
                         propertyType={project.propertyType}
