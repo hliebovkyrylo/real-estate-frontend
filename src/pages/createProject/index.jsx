@@ -257,7 +257,7 @@ export const CreateProject = () => {
                             </div>
                         </button>
                         {poster && (
-                            <button onClick={onClickRemoveImage}>Delete image</button>
+                            <button className={styles.button} onClick={onClickRemoveImage}>Delete image</button>
                         )}
                         <input ref={inputFileRef} type="file" onChange={changeFile} hidden/>
                         <SimpleMDE className={styles.editor} value={description} onChange={onChange} options={options}/>

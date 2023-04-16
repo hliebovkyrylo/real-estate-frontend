@@ -22,6 +22,10 @@ h2 {
     height: 705px;
     object-fit: cover;
     border-radius: 20px;
+    @media (max-width: 500px) {
+        width: 320px;
+        height: 400px;
+    }
 }
 
 .upload__img {

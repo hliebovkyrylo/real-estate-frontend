@@ -97,6 +97,9 @@
     background-size: cover;
     display: flex;
     align-items: center;
+    @media(max-width: 500px) {
+        margin-top: 40px;
+    }
 }
 
 .about_us {
