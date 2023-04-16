@@ -35,29 +35,18 @@ export const HeaderDropdown = ({ avatarUrl }) => {
             </button>
             {isActive ? (
                 <>
-                    {isAuth ? (
-                        <div className={styles.buttons}>
-                            <button type="button" className={styles.href}>
-                                <a className={styles.href} href="/users/me">My profile</a>
-                            </button>
-                            <button type="button" className={styles.href}>
-                                <a className={styles.href} href="/users/update">Edit profile</a>
-                            </button>
-                            <button type="button" className={styles.href}>
-                                <a className={styles.href} href="/projects/create">Create project</a>
-                            </button>
-                            <button onClick={onClickLogout} className={styles.href} type="button">Log out</button>
-                        </div>
-                    ) : (
-                        <div className={styles.buttons}>
-                            <button type="button" className={styles.href}>
-                                <a className={styles.href} href="/auth/login">Login</a>
-                            </button>
-                            <button type="button" className={styles.href}>
-                                <a className={styles.href} href="/auth/register">Sign Up</a>
-                            </button>
-                        </div>
-                    )}
+                    <div className={styles.buttons}>
+                        <button type="button" className={styles.href}>
+                            <a className={styles.href} href="/users/me">My profile</a>
+                        </button>
+                        <button type="button" className={styles.href}>
+                            <a className={styles.href} href="/users/update">Edit profile</a>
+                        </button>
+                        <button type="button" className={styles.href}>
+                            <a className={styles.href} href="/projects/create">Create project</a>
+                        </button>
+                        <button onClick={onClickLogout} className={styles.href} type="button">Log out</button>
+                    </div>
                 </>
             ) : null}
         </div>
