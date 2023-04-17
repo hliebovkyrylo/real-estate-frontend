@@ -1,6 +1,6 @@
 Link to the beta version of the application: https://real-estate-frontend-six.vercel.app
 
-##If the application functionality does not work, wait 1-2 minutes until the hosting starts the server part of the application.
+# If the application functionality does not work, wait 1-2 minutes until the hosting starts the server part of the application.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
