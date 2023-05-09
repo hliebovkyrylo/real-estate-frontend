@@ -34,6 +34,10 @@
     display: flex;
     margin-bottom: 64px;
 
+    @media (max-width: 350px) {
+        display: block;
+    }
+
     .form__field {
         border: none;
         outline: 0;

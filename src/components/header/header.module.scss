@@ -13,6 +13,7 @@
 
 .header__inner {
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-items: center;
 
@@ -23,14 +24,14 @@
 }
 
 .headerForPc {
-    @media(max-width: 990px) {
+    @media(max-width: 1120px) {
         display: none;
     }
 }
 
 .navToggle {
     display: none;
-    @media(max-width: 990px) {
+    @media(max-width: 1120px) {
         display: block;
     }
 }

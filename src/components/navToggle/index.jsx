@@ -18,15 +18,15 @@ export const NavToggle = () => {
                 </label>
                 {isAuth ? (
                     <nav>
-                        <a href="/">Home</a>
-                        <a href="/users/me">My profile</a>
-                        <a href="/users/update">Edit profile</a>
-                        <a href="/projects/create">Create project</a>
+                        <a className={styles.a} href="/">Home</a>
+                        <a className={styles.a} href="/users/me">My profile</a>
+                        <a className={styles.a} href="/users/update">Edit profile</a>
+                        <a className={styles.a} href="/projects/create">Create project</a>
                     </nav>
                 ) : (
                     <nav>
-                        <a href="/auth/login">Login</a>
-                        <a href="/auth/register">Sign Up</a>
+                        <a className={styles.a} href="/auth/login">Login</a>
+                        <a className={styles.a} href="/auth/register">Sign Up</a>
                     </nav>
                 )}
                 

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "../../axios";
 import { useParams } from "react-router-dom";
 
+import ReactMarkdown from "react-markdown";
+
 import styles from "./viewDetails.module.scss";
 import { FullProject, Footer } from "../../components";
 
@@ -31,7 +33,7 @@ export const ViewDetail = () => {
                         size={project.size}
                         videoLink={project.videoLink}
                         user={project.user}
-                        description={project.description}
+                        description={<ReactMarkdown children={project.description} />}
                         >
                     </FullProject>
                 </div>

@@ -252,7 +252,7 @@ export const CreateProject = () => {
                                         <img src={upload} alt="Upload" className={styles.upload__icon} />
                                         <p className={styles.button}>Upload image</p>
                                     </div>
-                                )
+                                    )
                                 }
                             </div>
                         </button>
